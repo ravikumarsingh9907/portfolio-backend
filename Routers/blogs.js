@@ -1,8 +1,5 @@
 const express = require('express');
 const Router = express.Router();
-const Blog = require('../Model/blogs');
-const catchAsyncError = require('../Exceptions/async-error');
-const expError = require('../Exceptions/exp-error');
 const { blogAdded, blogUpdated, getBlogs, getBlogById, blogDeleted } = require('../Controllers/blogs');
 
 Router.post('/users/me/blogs', blogAdded);

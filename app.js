@@ -4,6 +4,7 @@ require("dotenv").config();
 const cors = require("cors");
 require('./Db/db');
 const Blog = require('./Routers/blogs');
+const Experience = require('./Routers/experience')
 const expError = require('./Exceptions/exp-error');
 const catchAsyncError = require('./Exceptions/async-error')
 
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(Blog);
+app.use(Experience);
 
 app.all("*", catchAsyncError(async (req, res, next) => {
     next(new expError("Page Not Found", 404));

@@ -20,7 +20,14 @@ const BlogSchema = new Schema({
         type: String,
         required: true,
         trim: true,
+    },
+    link: {
+        type: String,
+        required: true,
+        trim: true
     }
+}, {
+    timestamps: true,
 });
 
 const Blogs = new mongoose.model("Blogs", BlogSchema);

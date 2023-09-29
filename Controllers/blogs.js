@@ -21,7 +21,7 @@ const blogUpdated = catchAsyncError(async (req, res) => {
 });
 
 const getBlogs = catchAsyncError(async (req, res) => {
-    const blogs = await Blog.find({});
+    const blogs = await Blog.find({}).sort({createdAt: -1});
 
     if(!blogs) throw new expError({message: "No Blog Found", statusCode: 400});
 
