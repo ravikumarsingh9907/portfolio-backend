@@ -43,8 +43,7 @@ const blogDeleted = catchAsyncError(async (req, res) => {
 
     if(!blogs) throw new expError({message: "Blog Not Found", statusCode: 400});
 
-    const blog = await blog.findByIdAndDelete(id);
-    await blog.save();
+    await Blog.findByIdAndDelete(id);
     
     res.status(200).send({ success: 'Blog deleted'});
 })

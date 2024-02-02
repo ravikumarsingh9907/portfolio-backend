@@ -43,8 +43,7 @@ const experienceDeleted = catchAsyncError(async (req, res) => {
 
     if(!experiences) throw new expError({message: "Experience Not Found", statusCode: 400});
 
-    const experience = await experience.findByIdAndDelete(id);
-    await experience.save();
+    await Experience.findByIdAndDelete(id);
     
     res.status(200).send({ success: 'Experience deleted'});
 })
